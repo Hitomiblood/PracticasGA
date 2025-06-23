@@ -1,6 +1,6 @@
 name: Deploy
 
-on: push
+on: workflow_dispatch
 
 jobs:
   build:
@@ -30,6 +30,5 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_TOKEN }}
           app_location: "public"
           deployment_action: "upload"
-
       
       
