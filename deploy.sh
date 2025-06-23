@@ -1,7 +1,15 @@
+BRANCH=$1
+
+if [ "$BRANCH" == "main" ]; then
+    DEPLOY_PATH="/home/azureuser/PracticasGA"
+else
+    DEPLOY_PATH="/home/azureuser/stage"
+fi
+
 ssh -o StrictHostKeyChecking=no azureuser@20.29.47.112 <<HTML
 
-    cd /home/azureuser/PracticasGA
+    cd $DEPLOY_PATH
 
-    git pull --rebase origin main
+    git pull --rebase origin $BRANCH
 
 HTML
